@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\homecontroller; //
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('welcome');
 });
+
+Route::get('/bangladesh', [homecontroller::class, 'index']);
+Route::get('/about', [homecontroller::class, 'about']);
+
+Route::get('/my-html', function () {
+    return view('my-html'); // Loads 'resources/views/my-html.blade.php'
+});
+
+Route::get('/conditional', function () {
+    $isLoggedIn = true;  // can set this to true or false for testing
+    return view('conditional', compact('isLoggedIn'));
+});
+
+// Route to show the welcome page
+Route::get('/welcome', [MyController::class, 'showWelcome']);
+
+// Route to show a message page with data passed from the controller
+Route::get('/message', [MyController::class, 'showMessage']);

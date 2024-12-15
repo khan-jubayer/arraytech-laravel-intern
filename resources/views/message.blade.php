@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Message</title>
 </head>
 <body>
-    <h1>Welcome to My Application!</h1>
+    <h1>{{ $message }}</h1> <!-- This will display the message passed from the controller -->
 </body>
 </html>
