@@ -36,3 +36,12 @@ Route::get('/welcome', [MyController::class, 'showWelcome']);
 
 // Route to show a message page with data passed from the controller
 Route::get('/message', [MyController::class, 'showMessage']);
+
+// Root Directory
+Route::get('/', [homecontroller::class, 'root']);
+
+// Data Submit
+Route::post('/submit', [homecontroller::class, 'submit']);
+
+// Show data
+Route::get('/show-data', [homecontroller::class, 'show_data']);
