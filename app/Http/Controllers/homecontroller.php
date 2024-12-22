@@ -38,7 +38,7 @@ class homecontroller extends Controller
         $data->save();
 
         //after save data return to the previous page
-        return redirect()->back();
+        return redirect('show-data');
         
     }
 
@@ -46,5 +46,35 @@ class homecontroller extends Controller
 
         $data1 = test::latest()->take(5)->get();
         return view('show_data', compact('data1'));
+    }
+
+    public function edit_data($id){
+
+        $edit = test::find($id);
+
+        return view('edit_data', compact(['edit']));
+
+    }
+
+    public function update($id, Request $request){
+
+        $updated_data = test::find($id);
+
+        $updated_data->name = $request->input('name');
+        $updated_data->email = $request->input('email');
+        $updated_data->phone = $request->input('phone');
+        $updated_data->address = $request->input('address');
+
+        $updated_data->save();
+
+        return redirect('show-data');
+    }
+
+    public function delete_data($id){
+
+        $delete_data = test::find($id);
+        $delete_data->delete();
+
+        return redirect('show-data');
     }
 }

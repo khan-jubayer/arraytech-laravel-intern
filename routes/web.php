@@ -45,3 +45,12 @@ Route::post('/submit', [homecontroller::class, 'submit']);
 
 // Show data
 Route::get('/show-data', [homecontroller::class, 'show_data']);
+
+// Edit data
+Route::get('/edit-data/{id}', [homecontroller::class, 'edit_data']);
+
+//  Update data
+Route::post('/update/{id}', [homecontroller::class, 'update']);
+
+// Delete data
+Route::get('/delete-data/{id}', [homecontroller::class, 'delete_data']);
